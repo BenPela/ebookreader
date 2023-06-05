@@ -16,9 +16,9 @@ struct ReaderView: View {
             TabView(
                 selection: $lastPage
             ){
-                ForEach (0..<book.content.count, id:\.self) { index in
+                ForEach (Array(book.content.enumerated()), id:\.element) { index, content in
                     VStack{
-                        Text(book.content[index])
+                        Text(content)
                         Spacer()
                         Text(String(index+1))
                     }
@@ -55,7 +55,7 @@ struct ReaderView: View {
             .navigationBarHidden(false)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: backButton)
-            .onAppear{model.compilePages(forId: book.id)}
+
         }
     }
     var backButton: some View {

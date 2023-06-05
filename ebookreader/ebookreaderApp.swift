@@ -2,7 +2,7 @@
 //  ebookreaderApp.swift
 //  ebookreader
 //
-//  Created by Andrew on 2023-06-04.
+//  Created by Andrew on 2023-05-16.
 //
 
 import SwiftUI
@@ -11,7 +11,8 @@ import SwiftUI
 struct ebookreaderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BookListView()
+                .environmentObject(BookModel())
         }
     }
 }
